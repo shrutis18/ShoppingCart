@@ -5,14 +5,10 @@ import Cart from './Cart';
 export default class ProductApp extends Component {
     constructor(props){
     super(props)
-    this.state = {cartPrice: 0}
     }
 
- getPrice = (newPrice) => {
- this.setState({cartPrice: newPrice})
- }
-
   render() {
+  const { cartPrice} = this.props;
   var tableStyle = {
        padding: 10,
        color: "#444",
@@ -29,8 +25,8 @@ export default class ProductApp extends Component {
     return (
         <div>
         <table style = {tableStyle}>
-            <Product items ={this.props.items} getPriceFromProduct ={this.getPrice}/>
-            <Cart cartPrice = {this.state.cartPrice}/>
+            <Product prop ={this.props}/>
+            <Cart cartPrice = {cartPrice}/>
         </table>
         </div>
     );
